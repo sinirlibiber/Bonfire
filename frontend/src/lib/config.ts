@@ -1,10 +1,10 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { baseSepolia, base } from "wagmi/chains";
+import { base } from "wagmi/chains";
 
 export const wagmiConfig = getDefaultConfig({
   appName: "BaseBonfire",
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "YOUR_PROJECT_ID",
-  chains: [baseSepolia, base],
+  chains: [base],
   ssr: true,
 });
 
@@ -17,11 +17,11 @@ export const BONFIRE_ASH_ADDRESS =
   "0x0000000000000000000000000000000000000000";
 
 export const EMOTION_COLORS: Record<number, string> = {
-  0: "#FFD700", // happy
-  1: "#4169E1", // sad
-  2: "#DC143C", // angry
-  3: "#800080", // fear
-  4: "#FF8C00", // mixed
+  0: "#FFD700",
+  1: "#4169E1",
+  2: "#DC143C",
+  3: "#800080",
+  4: "#FF8C00",
 };
 
 export const EMOTION_NAMES: Record<number, string> = {
@@ -33,10 +33,10 @@ export const EMOTION_NAMES: Record<number, string> = {
 };
 
 export const CONTENT_TYPE_POINTS: Record<number, number> = {
-  0: 1,  // word
-  1: 1,  // sentence
-  2: 1,  // emoji
-  3: 1,  // emotion
-  4: 10, // audio
-  5: 5,  // image
+  0: 1,
+  1: 1,
+  2: 1,
+  3: 1,
+  4: 10,
+  5: 5,
 };

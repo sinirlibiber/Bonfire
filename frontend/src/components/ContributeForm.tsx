@@ -193,7 +193,7 @@ export default function ContributeForm({ isBurning, onSuccess }: Props) {
                   ? "ring-2 ring-offset-1 ring-offset-black scale-105"
                   : "bg-white/5 hover:bg-white/10"
               }`}
-              style={emotion === em.id ? { ringColor: em.color, backgroundColor: em.color + "22" } : {}}
+              style={emotion === em.id ? { outline: `2px solid ${em.color}`, backgroundColor: em.color + "22" } : {}}
             >
               {em.emoji} {em.label}
             </button>

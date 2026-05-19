@@ -1,0 +1,39 @@
+type BonfireSession @entity {
+  id: ID!                          # bonfireId as string
+  bonfireId: BigInt!
+  ignitedAt: BigInt!
+  ignitedBy: Bytes!
+  extinguishedAt: BigInt
+  totalBurnDuration: BigInt
+  dominantEmotion: Int
+  totalContributions: BigInt!
+  ashTokenId: BigInt
+  contributions: [Contribution!]! @derivedFrom(field: "session")
+}
+
+type Contribution @entity {
+  id: ID!                          # txHash-logIndex
+  session: BonfireSession!
+  contributor: Bytes!
+  contentType: Int!
+  cid: Bytes!
+  pointsAdded: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
+type ContributorStats @entity {
+  id: ID!                          # address-bonfireId
+  address: Bytes!
+  bonfireId: BigInt!
+  totalPoints: BigInt!
+  contributionCount: BigInt!
+  lastContributed: BigInt!
+}
+
+type GlobalStats @entity {
+  id: ID!                          # "global"
+  totalBonfires: BigInt!
+  totalContributions: BigInt!
+  totalBurnSeconds: BigInt!
+}

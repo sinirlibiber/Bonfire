@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bonfire-color: #FF4500;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+}
+
+/* Flame animation */
+@keyframes flameFlicker {
+  0%   { transform: scaleX(1)    scaleY(1)    rotate(-1deg); opacity: 0.95; }
+  25%  { transform: scaleX(1.04) scaleY(1.02) rotate(1deg);  opacity: 1;    }
+  50%  { transform: scaleX(0.97) scaleY(1.05) rotate(-0.5deg); opacity: 0.92; }
+  75%  { transform: scaleX(1.02) scaleY(0.98) rotate(1.5deg); opacity: 0.98; }
+  100% { transform: scaleX(1)    scaleY(1)    rotate(-1deg); opacity: 0.95; }
+}
+
+.flame-animate {
+  animation: flameFlicker 0.4s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes particleRise {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-120px) translateX(var(--dx, 10px)) scale(0); opacity: 0; }
+}
+
+.particle {
+  animation: particleRise 1.5s ease-out forwards;
+}
+
+/* Ember glow */
+@keyframes emberPulse {
+  0%, 100% { box-shadow: 0 0 20px var(--bonfire-color), 0 0 60px var(--bonfire-color); }
+  50%       { box-shadow: 0 0 40px var(--bonfire-color), 0 0 100px var(--bonfire-color); }
+}
+
+.ember-glow {
+  animation: emberPulse 2s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
